@@ -35,7 +35,7 @@
                     <div class="col-xs-12">
                         
 						<ul>
-							<li>Parce qu’elle bénéficie à <strong>80 millions</strong> de personnes handicapées ou séniors en Europe.</li>
+							<li>Parce qu’elle bénéficie à <strong>80 millions</strong> de personnes handicapées ou <a class="info" href="#" target="_blank"><strong>séniors</strong><span>nouvelle fenêtre</span></a> en Europe.</li>
 							<li>Parce que nous passons en moyenne <strong>8 ans</strong> de notre vie en situation de handicap.</li>
 							<li>Mais aussi et surtout parce qu’un produit accessible est plus <strong>facile à utiliser</strong> et que cela bénéficie à tous !</li>
 						</ul>
@@ -86,7 +86,7 @@
 					<div class="col-md-4">
 					<p><b>Connectez-vous à votre espace afin de bénéficier de nos meilleures offres.</b></p>
 					<form novalidate="novalidate" id="formulaire">
-						
+							<div> <p id="errors" role="alert" aria-atomic="true"></p></div>
 							<div class="form-group">                                    
 								  <label for="credential">Adresse mail</label>
 								  <input name="credential" class="form-control" id="credential" type="text" autocomplete="e-mail">
@@ -99,7 +99,7 @@
 							</div>  
 							
 							<div class="form-group">
-								<div>
+																<div>
 									<input name="memorize-login" id="id-memorize-login" checked="checked" type="checkbox">
 									<label for="id-memorize-login">mémoriser l’adresse mail ou le nº de mobile </label>
 								</div>
@@ -108,11 +108,10 @@
 									<label for="id-memorize-password">rester connecter</label>
 								</div>
 							</div>						
-							
-							<button id="envoyer" type="submit" class="btn btn-default">Envoyer</button>
+							<input type="submit" name="button" id="button" value="Submit">
+							<button id="envoyer" type="submit" class="btn btn-default" aria-label="se connecter à son compte client">Envoyer</button>
 							
 						</form>
-                    
 					
 					</div>
                 </div><!-- .row -->
@@ -123,7 +122,21 @@
     <!-- Placed at the end of the document so the pages load faster -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="content/jquery.js"></script>    
+	<script src="content/jquery.js"></script>  
+	<script>
+			$(document).ready(function(e) {
+				$('#formulaire').submit(function() {
+					$('#errors').html('');
+					if ($('#credential').val() === '') {
+						$('#errors').append('<p>Please enter your Email.</p>');
+					}
+					if ($('#password').val() === '') {
+						$('#errors').append('<p>Please enter your password.</p>');
+					}
+					return false;
+				});
+			});
+			</script>  
 
     <!-- Include all compiled plugins bootstrap, bootstrap accessibility plugin and boosted specific components (below), or include individual files as needed -->
     <script src="content/boosted.js"></script>    
