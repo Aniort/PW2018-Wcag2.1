@@ -1,0 +1,29 @@
+critères WCAG 2.1;;"Statut
+V, N/A, NV";Commentaires
+1.3.4 Orientation;Orientation of web content is not restricted to only portrait or landscape, unless a specific orientation is necessary.;;
+1.3.5 Identify Input Purpose;Input fields that collect certain types of user information have an appropriate autocomplete attribute defined.;;
+1.4.10 Reflow;"
+    No loss of content or functionality occurs and horizontal scrolling is avoided when content is presented at a width of 320 pixels.
+        This requires responsive design for most web sites. This is best tested by setting the browser window to 1280 pixels wide and then zooming the page content to 400%.
+    Content that requires horizontal scrolling, such as data tables, complex images (such as maps and charts), toolbars, etc. are exempted.
+";;
+1.4.11 Non-text Contrast;"
+    A contrast ratio of at least 3:1 is present for differentiating graphical objects (such as icons and components of charts or graphs) and author-customized interface components (such as buttons, form controls, and focus indicators/outlines).
+    The various states (focus, hover, active, etc.) of author-customized interactive components must all present 3:1 contrast.
+";;
+1.4.12 Text Spacing;"
+    No loss of content or functionality occurs when the user adapts text line height/spacing to 1.5 times the font size, paragraph spacing to 2 times the font size, word spacing to .16 times the font size, and letter spacing to .12 times the font size.
+    This is best supported by avoiding pixel height definitions for elements that contain text.
+";;
+1.4.13 Content on Hover or Focus;"When additional content is presented on hover or keyboard focus:
+
+    The newly revealed content can be dismissed (generally via the Esc key) without moving the pointer or keyboard focus, unless the content presents an input error or does not obscure or interfere with other page content.
+    The pointer can be moved to the new content without the content disappearing.
+    The new content must remain visible until the pointer or keyboard focus is moved away from the triggering control, the new content is dismissed, or the new content is no longer relevant.
+";;
+2.1.4 Character Key Shortcuts;If a keyboard shortcut uses printable character keys, then the user must be able to disable the key command, change the defined key to a non-printable key (Ctrl, Alt, etc.), or only activate the shortcut when an associated interface component or button is focused.;;
+2.5.1 Pointer Gestures;If multipoint or path-based gestures (such as pinching, swiping, or dragging across the screen) are not essential to the functionality, then the functionality can also be performed with a single point activation (such as activating a button).;;
+2.5.2 Pointer Cancellation;To help avoid inadvertent activation of controls, avoid non-essential down-event (e.g., onmousedown) activation when clicking, tapping, or long pressing the screen. Use onclick, onmouseup, or similar instead. If onmouseup (or similar) is used, you must provide a mechanism to abort or undo the action performed.;;
+2.5.3 Label in Name;If an interface component (link, button, etc.) presents text (or images of text), the accessible name (label, alternative text, aria-label, etc.) for that component must include the visible text.;;
+2.5.4 Motion Actuation;Functionality that is triggered by moving the device (such as shaking or panning a mobile device) or by user movement (such as waving to a camera) can be disabled and equivalent functionality is provided via standard controls like bu;;
+4.1.3 Status Messages;If an important status message is presented and focus is not set to that message, the message must be announced to screen reader users, typically via an ARIA alert or live region.;;
