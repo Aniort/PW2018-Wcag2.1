@@ -1,29 +1,73 @@
-critères WCAG 2.1;;"Statut
+critères WCAG 2.1;;;"Statut
 V, N/A, NV";Commentaires
-1.3.4 Orientation;Orientation of web content is not restricted to only portrait or landscape, unless a specific orientation is necessary.;;
-1.3.5 Identify Input Purpose;Input fields that collect certain types of user information have an appropriate autocomplete attribute defined.;;
+1.3.4 Orientation;Orientation of web content is not restricted to only portrait or landscape, unless a specific orientation is necessary.;"Pour toute page dont l'orientation n'est pas essentielle,
+Vérifier que lorsque l'on change d'orientation, Le contenu s'adapte et reste fonctionnel";;
+1.3.5 Identify Input Purpose;Input fields that collect certain types of user information have an appropriate autocomplete attribute defined.;"Pour chaque champ de formulaire qui collecte des informations sur l'utilisateur et qui est listé comme un champ de saisie semi-automatique décrit dans WCAG 2.1 ""Section 7: Objectifs de saisie pour les composants d'interface utilisateurs"", vérifiez les éléments suivants:
+les champs de formulaire ont une paire, attribut et valeurs de saisie semi-automatique, valide et bien formée.
+Le but de chaque champ de formulaire indiqué par l'étiquette correspond au jeton de saisie semi-automatique.";;
 1.4.10 Reflow;"
     No loss of content or functionality occurs and horizontal scrolling is avoided when content is presented at a width of 320 pixels.
         This requires responsive design for most web sites. This is best tested by setting the browser window to 1280 pixels wide and then zooming the page content to 400%.
     Content that requires horizontal scrolling, such as data tables, complex images (such as maps and charts), toolbars, etc. are exempted.
-";;
+";"Pour toutes les pages,  sauf exceptions, basculer le viewport en 320px CSS, vérifier que :
+
+le contenu est fonctionnel, compréhensible et lisible
+
+il n'y a pas barre de défilement horizontal
+Note : on peut faire le contraire, viewport à 1280px CSS et on zoome global à 400% (peut être plus facile !)";;
 1.4.11 Non-text Contrast;"
     A contrast ratio of at least 3:1 is present for differentiating graphical objects (such as icons and components of charts or graphs) and author-customized interface components (such as buttons, form controls, and focus indicators/outlines).
     The various states (focus, hover, active, etc.) of author-customized interactive components must all present 3:1 contrast.
-";;
+";"Identifiez chaque composant d'interface utilisateur (lien, bouton, contrôle de formulaire) et chaque graphique sur la page qui comprend les informations nécessaires à la compréhension du contenu (à savoir, exclure les graphiques dont le texte est visible pour la même information ou qui sont décoratifs) et :
+
+Identifiez les indicateurs visuels (non textuels et leurs différents états : focus, survol, actif, etc.) des composants personnalisés dans l'état par défaut
+Vérifiez le contraste de l'objet graphique par rapport aux couleurs adjacentes";;
 1.4.12 Text Spacing;"
     No loss of content or functionality occurs when the user adapts text line height/spacing to 1.5 times the font size, paragraph spacing to 2 times the font size, word spacing to .16 times the font size, and letter spacing to .12 times the font size.
     This is best supported by avoiding pixel height definitions for elements that contain text.
-";;
+";"Appliquer à tout contenu textuel les propriétés CSS : hauteur / espacement de la ligne de texte à 1,5 fois la taille de la police, espacement des paragraphes à 2 fois la taille de la police, espacement des mots à 0,16 fois la taille de la police et espacement des lettres à 0,12 fois la taille de la police.
+
+Le contenu est fonctionnel et lisible, sans chevauchement, ni texte coupé";;
 1.4.13 Content on Hover or Focus;"When additional content is presented on hover or keyboard focus:
 
     The newly revealed content can be dismissed (generally via the Esc key) without moving the pointer or keyboard focus, unless the content presents an input error or does not obscure or interfere with other page content.
     The pointer can be moved to the new content without the content disappearing.
     The new content must remain visible until the pointer or keyboard focus is moved away from the triggering control, the new content is dismissed, or the new content is no longer relevant.
-";;
-2.1.4 Character Key Shortcuts;If a keyboard shortcut uses printable character keys, then the user must be able to disable the key command, change the defined key to a non-printable key (Ctrl, Alt, etc.), or only activate the shortcut when an associated interface component or button is focused.;;
-2.5.1 Pointer Gestures;If multipoint or path-based gestures (such as pinching, swiping, or dragging across the screen) are not essential to the functionality, then the functionality can also be performed with a single point activation (such as activating a button).;;
-2.5.2 Pointer Cancellation;To help avoid inadvertent activation of controls, avoid non-essential down-event (e.g., onmousedown) activation when clicking, tapping, or long pressing the screen. Use onclick, onmouseup, or similar instead. If onmouseup (or similar) is used, you must provide a mechanism to abort or undo the action performed.;;
-2.5.3 Label in Name;If an interface component (link, button, etc.) presents text (or images of text), the accessible name (label, alternative text, aria-label, etc.) for that component must include the visible text.;;
-2.5.4 Motion Actuation;Functionality that is triggered by moving the device (such as shaking or panning a mobile device) or by user movement (such as waving to a camera) can be disabled and equivalent functionality is provided via standard controls like bu;;
-4.1.3 Status Messages;If an important status message is presented and focus is not set to that message, the message must be announced to screen reader users, typically via an ARIA alert or live region.;;
+";"Identifier tout composant faisant apparaître au survol ou au focus et qui disparaît à la sortie du survol et du focus
+
+Vérifier que le contenu apparu , à la fois :
+
+peut disparaître : un mécanisme est disponible pour supprimer le contenu supplémentaire sans déplacer le curseur ou le focus du clavier, à moins que le contenu supplémentaire ne communique une erreur de saisie ou ne masque ou ne remplace aucun autre contenu,
+
+peut être survolé : Si le survol du pointeur peut déclencher le contenu supplémentaire, le pointeur peut être déplacé sur le contenu supplémentaire sans que le contenu supplémentaire ne disparaisse,
+
+est persistant : le contenu supplémentaire reste visible jusqu'à ce que le déclencheur de survol ou de focus soit supprimé, que l'utilisateur le fait disparaître ou ses informations ne sont plus valides";;
+2.1.4 Character Key Shortcuts;If a keyboard shortcut uses printable character keys, then the user must be able to disable the key command, change the defined key to a non-printable key (Ctrl, Alt, etc.), or only activate the shortcut when an associated interface component or button is focused.;"Identifier les raccourcis clavier utilisant un caractère imprimable
+Vérifier que l'on peut, au choix :
+Arrêter : un mécanisme est disponible pour désactiver le raccourci
+Remappe : un mécanisme est disponible pour remapper le raccourci afin d'utiliser un ou plusieurs caractères de clavier non imprimables (par exemple, Ctrl, Alt, etc.)
+Actif uniquement au focus : le raccourci clavier pour un composant d'interface utilisateur n'est actif que lorsque ce composant a le focus.";;
+2.5.1 Pointer Gestures;If multipoint or path-based gestures (such as pinching, swiping, or dragging across the screen) are not essential to the functionality, then the functionality can also be performed with a single point activation (such as activating a button).;"Identifier tous les gestes multipoint et basé sur le chemin d'accès, hors exception
+
+Vérifier qu'il existe une alternative mono-point";;
+2.5.2 Pointer Cancellation;To help avoid inadvertent activation of controls, avoid non-essential down-event (e.g., onmousedown) activation when clicking, tapping, or long pressing the screen. Use onclick, onmouseup, or similar instead. If onmouseup (or similar) is used, you must provide a mechanism to abort or undo the action performed.;"Identifier tout les éléments activables par mono-point,
+
+Vérifier qu'au moins une condition est vraie :
+Pas de Down-Event
+     L'événement descendant du pointeur n'est utilisé pour exécuter aucune partie de la fonction (clik, touchEnd === OK !)
+Abandonner ou Annuler
+     L'achèvement de la fonction est sur le Up, et un mécanisme est disponible pour abandonner la fonction avant la fin ou pour annuler la fonction une fois terminée
+Renversement Up
+     L'événement Up inverse tout résultat de l'événement Down précédent (popup down/up)
+ Essentiel
+     Compléter la fonction sur l'événement est essentiel.
+Les fonctions qui émulent un appui clavier ou un pavé numérique sont considérées comme essentielles (entrée clavier).";;
+2.5.3 Label in Name;If an interface component (link, button, etc.) presents text (or images of text), the accessible name (label, alternative text, aria-label, etc.) for that component must include the visible text.;"Identifier les composants d'interface utilisateur dont les étiquettes incluent du texte ou des images de texte
+
+Vérifier que le nom accessible contient le texte de l'étiquette ou de l'image étiquette";;
+2.5.4 Motion Actuation;Functionality that is triggered by moving the device (such as shaking or panning a mobile device) or by user movement (such as waving to a camera) can be disabled and equivalent functionality is provided via standard controls like bu;"Identifier les fonctionnalités pouvant être actionnée par le mouvement de l'appareil ou de l'utilisateur, hors exceptions
+
+Vérifier qu'elles peuvent également être activées par des composants de l'interface utilisateur et la réponse au mouvement peut être désactivée pour empêcher toute activation accidentelle.";;
+4.1.3 Status Messages;If an important status message is presented and focus is not set to that message, the message must be announced to screen reader users, typically via an ARIA alert or live region.;"Identifier tout les messages de status,
+
+Vérifier qu'ils sont accessibles aux technologies d'assistance sans recevoir le focus (via ARIA, généralement : alert, status, log, dialog donc live region)";;
